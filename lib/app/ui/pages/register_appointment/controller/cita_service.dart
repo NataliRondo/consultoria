@@ -7,9 +7,9 @@ class CitaService {
   Future<void> create(String? email, DateTime day) async {
     try {
       var citasDelDia = await getBYDate(day);
-      var turno =1;
+      var turno = 1;
       citasDelDia!.forEach((element) => turno = max(element.turn + 1, turno));
-      
+
       await FirebaseFirestore.instance.collection('citas').add(
         {'email': email, 'day': day, 'turn': turno, 'status': 'pendiente'},
       );
@@ -39,11 +39,12 @@ class CitaService {
     }
   }
 
-  Future<void> cancel(DocumentReference reference) async {
+  Future<void> cancel(Cita cita) async {
     try {
       await FirebaseFirestore.instance
-          .doc(reference.path)
-          .update({'status': 'cancelado'});
+          .doc(cita.reference.path)
+          .update({'status': 'cancelado', 'turn': 0});
+      await updateCitasAfterTurn(cita.day, cita.turn);
     } catch (e) {
       print(e);
     }
@@ -62,9 +63,37 @@ class CitaService {
         citas.add(Cita.fromSnapshot(element));
       }
 
-      citas.sort((a, b) => b.turn.compareTo(a.turn));
+      citas.sort((a, b) => a.turn.compareTo(b.turn));
 
       return citas;
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  }
+
+  Future<void> updateCitasAfterTurn(DateTime day, int turn) async {
+    try {
+      var dbCitas = await getBYDate(day);
+      List<Cita> citas = [];
+      //filtrando turnos cancelados
+      for (var element in dbCitas!) {
+        if (element.turn >= turn) {
+          citas.add(element);
+        }
+      }
+      // organizar por turno
+      citas.sort((a, b) => b.turn.compareTo(a.turn));
+      List<Future> futures = [];
+      //actualiza turno por turno que ha sido cancelado
+      for (var element in citas) {
+        futures.add(FirebaseFirestore.instance
+            .doc(element.reference.path)
+            .update({'turn': turn}));
+            turn ++;
+      }
+      //regresa a la base de datos a actualizar
+      await Future.wait(futures);
     } catch (e) {
       print(e);
       return null;

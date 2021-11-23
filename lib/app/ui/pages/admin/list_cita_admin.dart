@@ -48,7 +48,7 @@ class _CitaListState extends State<ListCitaAdmin> {
               tileColor: cita.isCancelled()
                   ? Colors.red[100]
                   : const Color(0xFFE4FBFC),
-              leading: Text(cita.turn.toString()),
+              leading: Text(cita.turn > 0 ? cita.turn.toString() : ""),
               title: Center(
                 child: Text(
                   cita.email,
@@ -66,7 +66,7 @@ class _CitaListState extends State<ListCitaAdmin> {
                   : IconButton(
                       icon: const Icon(Icons.close_outlined),
                       onPressed: () async {
-                        await citaService.cancel(cita.reference);
+                        await citaService.cancel(cita);
                         setState(() {});
                       },
                     ),
