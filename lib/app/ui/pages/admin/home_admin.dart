@@ -66,8 +66,10 @@ class _AdminHomeState extends State<AdminHome> {
                     color: const Color(0xFFede7f6),
                     borderRadius: BorderRadius.circular(30.0),
                   ),
-                   
                   child: TableCalendar(
+                    locale: 'es_Es',
+                    headerStyle: const HeaderStyle(
+                        titleCentered: true, formatButtonVisible: false),
                     selectedDayPredicate: (day) => _selectedDay == day,
                     onDaySelected: (selectedDay, focusedDay) {
                       setState(() {

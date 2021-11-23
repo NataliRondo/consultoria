@@ -2,12 +2,14 @@
 
 import 'package:consultoria/app/ui/pages/routes/app_routes.dart';
 import 'package:consultoria/app/ui/pages/routes/routes.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/flutter_meedu.dart';
 import 'package:flutter_meedu/router.dart' as router;
 
 //import 'modulos/inicio.dart';
+
+// ignore: use_function_type_syntax_for_parameters
+
 
 class Extra extends StatelessWidget {
   //final Future<FirebaseApp> _initialization = Firebase.initializeApp();

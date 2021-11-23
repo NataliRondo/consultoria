@@ -70,6 +70,10 @@ class _RegistrarCitaState extends State<RegistrarCita> {
                                   Column(
                                     children: [
                                       TableCalendar(
+                                        locale: 'es_Es',
+                                        headerStyle: const HeaderStyle(
+                                            titleCentered: true,
+                                            formatButtonVisible: false),
                                         selectedDayPredicate: (day) =>
                                             _selectedDay == day,
                                         onDaySelected:
@@ -87,10 +91,13 @@ class _RegistrarCitaState extends State<RegistrarCita> {
                                       ),
                                       TextButton(
                                         onPressed: () async {
-                                      await citaService.create(
-                                          FirebaseAuth.instance.currentUser!.email, _selectedDay);
-                                          Navigator.popAndPushNamed(context, Routes.CITAHOME);
-                                    },
+                                          await citaService.create(
+                                              FirebaseAuth
+                                                  .instance.currentUser!.email,
+                                              _selectedDay);
+                                          Navigator.popAndPushNamed(
+                                              context, Routes.CITAHOME);
+                                        },
                                         child: const Text('Agendar Cita'),
                                       ),
                                     ],
