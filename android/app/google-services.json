@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "525455756691",
+    "project_id": "consultoria-852ff",
+    "storage_bucket": "consultoria-852ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525455756691:android:9af2b505962a0d5b9f2c66",
+        "android_client_info": {
+          "package_name": "com.example.consultoria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525455756691-jbpoa78p8vqkqa5ur91ua9h6k5a7nmq8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.consultoria",
+            "certificate_hash": "02ea118edfc2dfa4a3ad65d05619c5002c583dbb"
+          }
+        },
+        {
+          "client_id": "525455756691-2srdb200ollk2j1aghltjls42q5jvdat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2Xu1LcK42_nSVUyzTd8Mjr-4M982pfQU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525455756691-2srdb200ollk2j1aghltjls42q5jvdat.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
