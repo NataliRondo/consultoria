@@ -2,8 +2,12 @@ import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:consultoria/app/domain/inputs/cita.dart';
+import 'package:flutter_meedu/flutter_meedu.dart';
 
-class CitaService {
+class CitaService extends SimpleNotifier{
+  String _email = '';
+  String get email => _email;
+
   Future<void> create(String? email, DateTime day) async {
     try {
       var citasDelDia = await getBYDate(day);
@@ -90,7 +94,7 @@ class CitaService {
         futures.add(FirebaseFirestore.instance
             .doc(element.reference.path)
             .update({'turn': turn}));
-            turn ++;
+        turn++;
       }
       //regresa a la base de datos a actualizar
       await Future.wait(futures);
@@ -98,5 +102,9 @@ class CitaService {
       print(e);
       return null;
     }
+  }
+
+  void onEmailChanged(String text) {
+    _email = text;
   }
 }

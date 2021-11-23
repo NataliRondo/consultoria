@@ -1,4 +1,5 @@
 import 'package:consultoria/app/ui/global_controllers/session_controller.dart';
+import 'package:consultoria/app/ui/pages/admin/cita_form.dart';
 import 'package:consultoria/app/ui/pages/admin/list_cita_admin.dart';
 import 'package:consultoria/app/ui/pages/menu/nav_admin.dart';
 import 'package:consultoria/app/ui/pages/register_appointment/controller/cita_controller.dart';
@@ -21,12 +22,14 @@ class _AdminHomeState extends State<AdminHome> {
   CitaService citaService = CitaService();
   DateTime _focusedDay = DateTime.now();
   DateTime _selectedDay = DateTime.now();
+  bool expanded = false;
 
   @override
   void initState() {
     super.initState();
     _focusedDay = DateTime.now();
     _selectedDay = DateTime.now();
+    expanded = false;
   }
 
   @override
@@ -64,7 +67,7 @@ class _AdminHomeState extends State<AdminHome> {
                 child: Container(
                   decoration: BoxDecoration(
                     color: const Color(0xFFede7f6),
-                    borderRadius: BorderRadius.circular(30.0),
+                    borderRadius: BorderRadius.circular(25.0),
                   ),
                   child: TableCalendar(
                     locale: 'es_Es',
@@ -85,11 +88,28 @@ class _AdminHomeState extends State<AdminHome> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: ListCitaAdmin(
-                  day: _selectedDay,
-                ),
+              Column(
+                children: [
+                  TextButton(
+                      onPressed: () {
+                        setState(() {
+                          expanded = !expanded;
+                        });
+                      },
+                      child: const Text('Agregar Cita')),
+                  Visibility(
+                    visible: expanded,
+                    child: CitaForm(day: _selectedDay,),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: ListCitaAdmin(
+                        day: _selectedDay,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
