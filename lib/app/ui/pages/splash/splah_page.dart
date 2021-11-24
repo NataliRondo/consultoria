@@ -1,6 +1,4 @@
-import 'package:consultoria/app/domain/repositories/authentication_repository.dart';
 import 'package:consultoria/app/ui/global_controllers/session_controller.dart';
-import 'package:consultoria/app/ui/pages/routes/routes.dart';
 import 'package:consultoria/app/ui/pages/splash/splash_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -40,3 +38,35 @@ class SplashPage extends StatelessWidget {
 bool isAdmin(email) =>
     ["admin@consultor.com", "secre@consultor.com"].contains(email);
 //pass 12345678
+/*
+class SplashPage extends StatelessWidget {
+  SplashPage({Key? key}) : super(key: key);
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: _initialization,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return StreamBuilder<SignUpData>(
+                //stream: AuthStream().authStateChanges(),
+                builder: (context, snapshot) {
+              if (snapshot.data == null) {
+                return LoginPage();
+              }
+              if (isAdmin(snapshot.data!.email)) {
+                return AdminHome();
+              }
+
+              return Menu();
+            });
+          }
+          return CircularProgressIndicator();
+        });
+  }
+}
+
+bool isAdmin(email) =>
+    ["admin@consultor.com", "secre@consultor.com"].contains(email);
+//pass 12345678
+*/

@@ -2,6 +2,7 @@
 
 import 'package:consultoria/app/ui/pages/routes/app_routes.dart';
 import 'package:consultoria/app/ui/pages/routes/routes.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/flutter_meedu.dart';
 import 'package:flutter_meedu/router.dart' as router;

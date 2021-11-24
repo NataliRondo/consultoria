@@ -2,7 +2,8 @@
 
 import 'package:consultoria/app/ui/global_controllers/session_controller.dart';
 import 'package:consultoria/app/ui/pages/admin/admin_app.dart';
-import 'package:consultoria/app/ui/pages/admin/home_admin.dart';
+import 'package:consultoria/app/ui/pages/admin/cita/cita_admin_home.dart';
+import 'package:consultoria/app/ui/pages/admin/menu/menu_admin_page.dart';
 import 'package:consultoria/app/ui/pages/splash/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/flutter_meedu.dart';
@@ -109,7 +110,7 @@ void Timer(BuildContext context) {
     //para ir a otra pantalla despues de 6 segundos y cuando regrese no se muestre el splash y se cierre la app
     const Duration(milliseconds: 3000),
     () => Navigator.of(context).pushAndRemoveUntil(
-    MaterialPageRoute(builder: (context) => const AdminHome()),
+    MaterialPageRoute(builder: (context) => const MenuAdminP()),
     (Route<dynamic> route) => false),
   );
   //Navigator.push(context, MaterialPageRoute(builder: (context) => const Inicio()),)

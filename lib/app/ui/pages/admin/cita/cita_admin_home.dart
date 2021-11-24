@@ -1,6 +1,6 @@
 import 'package:consultoria/app/ui/global_controllers/session_controller.dart';
-import 'package:consultoria/app/ui/pages/admin/cita_form.dart';
-import 'package:consultoria/app/ui/pages/admin/list_cita_admin.dart';
+import 'package:consultoria/app/ui/pages/admin/cita/cita_form.dart';
+import 'package:consultoria/app/ui/pages/admin/cita/list_cita_admin.dart';
 import 'package:consultoria/app/ui/pages/menu/nav_admin.dart';
 import 'package:consultoria/app/ui/pages/register_appointment/controller/cita_controller.dart';
 import 'package:consultoria/app/ui/pages/register_appointment/controller/cita_service.dart';

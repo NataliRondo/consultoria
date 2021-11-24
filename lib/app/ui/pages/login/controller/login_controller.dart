@@ -17,6 +17,9 @@ class LoginController extends SimpleNotifier {
   void onEmailChanged(String text) {
     _email = text;
   }
+  void onEmailAdmin(String text) {
+    _email = text;
+  }
 
   void onPasswordChanged(String text) {
     _password = text;

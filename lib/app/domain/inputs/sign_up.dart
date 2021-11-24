@@ -10,5 +10,7 @@ class SignUpData {
       required this.email,
       required this.password,
       required this.telefono,});
+
+  
 }
 

@@ -12,23 +12,35 @@ class Categoria {
   Categoria(this.id, this.nombre, this.foto, this.ruta);
 }
 
-final obtenerMenu = [
+final obtenerMenuAdmin = [
   Categoria(
     1,
-    'Registrar cita',
+    'Ver citas',
     'registro.png',
-    Routes.REGISTRAR_CITAS
+    Routes.ADMIN_HOME
   ),
   Categoria(
     2,
-    'Horario',
+    'Consultores/horarios',
     'usuario.png',
-    Routes.REGISTER_HORARIO
+    Routes.Horario_ADMIN_HOME
   ),
   Categoria(
     3,
+    'Registrar horario',
+    'calendar.png',
+    Routes.REGISTER_HORARIO
+  ),
+  Categoria(
+    4,
     'Acerca de...',
     'informacion.png',
     Routes.REGISTRAR_CITAS
   ),
+  Categoria(
+    5,
+    'Citas',
+    'informacion.png',
+    Routes.CITAHOME
+  )
 ];

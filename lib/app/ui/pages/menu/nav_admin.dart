@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:consultoria/app/domain/repositories/authentication_repository.dart';
 import 'package:consultoria/app/ui/global_controllers/session_controller.dart';
 import 'package:consultoria/app/ui/pages/login/login_page.dart';
+import 'package:consultoria/app/ui/pages/routes/routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/flutter_meedu.dart';
@@ -59,18 +60,18 @@ class NavAdmin extends StatelessWidget {
                     Icons.home,
                     color: Colors.blueGrey,
                   ),
-                  title: const Text('Inicio'),
+                  title: const Text('extra'),
                 ),
                 ListTile(
                   onTap: () {
-                    Navigator.of(context).pop();
+                    Navigator.pushNamed(context, Routes.HORARIO_HOME);
                   },
                   // ignore: prefer_const_constructors
                   leading: Icon(
                     Icons.receipt,
                     color: Colors.blueGrey,
                   ),
-                  title: const Text('Registrar'),
+                  title: const Text('Registrar Horario'),
                 ),
                 ListTile(
                   onTap: () async {

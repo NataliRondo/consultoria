@@ -1,6 +1,9 @@
 
 
-import 'package:consultoria/app/ui/pages/admin/home_admin.dart';
+import 'package:consultoria/app/ui/pages/admin/cita/cita_admin_home.dart';
+import 'package:consultoria/app/ui/pages/admin/horario/horario_admin_home.dart';
+import 'package:consultoria/app/ui/pages/consultor/horario_home.dart';
+import 'package:consultoria/app/ui/pages/consultor/register_horario_page.dart';
 import 'package:consultoria/app/ui/pages/login/login_page.dart';
 import 'package:consultoria/app/ui/pages/menu/menu_page.dart';
 import 'package:consultoria/app/ui/pages/register_appointment/cita_home.dart';
@@ -17,18 +20,22 @@ import 'package:consultoria/app/utils/extra.dart';
 import 'package:flutter/cupertino.dart';
 
 Map<String, Widget Function(BuildContext)> get appRoutes => {
-      Routes.INICIAR: (_) =>  const Extra(),
+      Routes.INICIAR: (_) => const  Extra(),
       Routes.SPLASH_MENU: (_) => const SplashMenu(),
       Routes.LOGIN: (_) => const LoginPage(),
       Routes.MENU: (_) => const Menu(),
       Routes.REGISTER: (_) => const RegisterPage(),
       Routes.RESET_PASSWORD: (_) => const ResetPasswordPage(),
       Routes.ADMIN_HOME: (_) => const AdminHome(),
-      Routes.SPLASH_PAGE: (_) => const SplashPage(),
+      Routes.SPLASH_PAGE: (_) =>  SplashPage(),
       Routes.SPLASH_LOGIN: (_) => const SplashLogin(),
       Routes.REGISTRAR_CITAS: (_) => const RegistrarCita(),
       Routes.CITAHOME: (_) => const CitaHome(),
       Routes.SPLASH_ADMIN: (_) => const SplasAdmin(),
 
-      Routes.SPLASH_VAL: (_) => SplahVal()
+      Routes.SPLASH_VAL: (_) => SplahVal(),
+      Routes.REGISTER_HORARIO: (_) => const RegistrarHorario(),
+      Routes.HORARIO_HOME: (_) => const HorarioHome(),
+      Routes.Horario_ADMIN_HOME: (_) => const HorarioAdminHome()
+      //Routes.MyAp: (_) => MyApp()
     };
