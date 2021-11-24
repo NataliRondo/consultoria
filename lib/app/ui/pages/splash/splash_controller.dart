@@ -19,7 +19,7 @@ class SplashController extends SimpleNotifier {
   void _init() async {
     final user = await _authRepository.user;
     if (user != null) {
-      _routeName = Routes.MENU;
+      _routeName = Routes.SPLASH_MENU;
       _sessionController.setUser(user);
       if(isAdmin(user.email)){
       _routeName = Routes.SPLASH_ADMIN;

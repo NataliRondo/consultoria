@@ -75,11 +75,11 @@ class NavAdmin extends StatelessWidget {
                 ListTile(
                   onTap: () async {
                     await Get.i.find<AuthenticationRepository>().signOut();
-                    Navigator.push(
+                    Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const LoginPage(),
-                      ),
+                      ) ,(Route<dynamic> route) => false,
                     );
                   },
                   leading: const Icon(

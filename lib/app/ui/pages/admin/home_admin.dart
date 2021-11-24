@@ -99,7 +99,12 @@ class _AdminHomeState extends State<AdminHome> {
                       child: const Text('Agregar Cita')),
                   Visibility(
                     visible: expanded,
-                    child: CitaForm(day: _selectedDay,),
+                    child: CitaForm(
+                      day: _selectedDay,
+                      refreshDay: () {
+                        setState(() {});
+                      },
+                    ),
                   ),
                   Expanded(
                     child: Padding(

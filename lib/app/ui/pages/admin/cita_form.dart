@@ -1,13 +1,11 @@
-import 'package:consultoria/app/ui/global_widgets/custom_login.dart';
-import 'package:consultoria/app/ui/global_widgets/custom_widget.dart';
 import 'package:consultoria/app/ui/pages/register_appointment/controller/cita_service.dart';
 import 'package:consultoria/app/utils/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_meedu/flutter_meedu.dart';
 
 class CitaForm extends StatefulWidget {
   final DateTime day;
-  CitaForm({Key? key, required this.day}) : super(key: key);
+  final Function refreshDay;
+  CitaForm({Key? key, required this.day, required this.refreshDay}) : super(key: key);
 
   @override
   State<CitaForm> createState() => _CitaFormState();
@@ -16,7 +14,6 @@ class CitaForm extends StatefulWidget {
 class _CitaFormState extends State<CitaForm> {
   var _formKey = GlobalKey<FormState>();
   var _emailController = TextEditingController();
-
   var _citaService = CitaService();
 
   @override
@@ -55,6 +52,8 @@ class _CitaFormState extends State<CitaForm> {
                         _emailController.text, widget.day);
                     _emailController.clear();
                   }
+                  //refrescar el widget y mostrar la lista actualizada
+                  widget.refreshDay(widget.day);
                 }),
           ),
         ),
